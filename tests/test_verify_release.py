@@ -42,6 +42,7 @@ def synthetic_assets(root: Path):
         "PlanetSniffer.Wpf/PlanetSniffer.Wpf.exe": "0" * 64,
         "PlanetCollection.Wpf/PlanetCollection.Wpf.exe": "1" * 64,
         "PlanetCollection.Wpf/Assets/extractor-catalog.json": "2" * 64,
+        "GalaxyMap.Wpf/GalaxyMap.Wpf.exe": "3" * 64,
     }
     manifest = {
         "schema_version": 1,
@@ -92,6 +93,14 @@ class PathPolicyTests(unittest.TestCase):
             verify.validate_installed_paths(
                 verify.REQUIRED_INSTALLED_FILES | {"../escape.dll"}
             )
+
+    def test_rejects_too_many_installed_files(self):
+        excessive = {
+            f"GalaxyMap.Wpf/runtime-{index}.dll"
+            for index in range(verify.MAX_INSTALLED_FILES + 1)
+        }
+        with self.assertRaisesRegex(RuntimeError, "too many files"):
+            verify.validate_installed_paths(excessive)
 
 
 class PePolicyTests(unittest.TestCase):

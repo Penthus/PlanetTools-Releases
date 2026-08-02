@@ -98,7 +98,11 @@ jobs:
           $encoded = [Convert]::ToBase64String([Text.Encoding]::UTF8.GetBytes($env:EXPECTED_ASSETS_JSON))
           python scripts/verify_release.py --tag $env:TAG --assets incoming --installed-root $env:INSTALL_ROOT --expected-json-base64 $encoded
           $expectedVersion = $env:TAG.Substring(1) + '.0'
-          foreach ($relative in @('PlanetSniffer.Wpf\PlanetSniffer.Wpf.exe','PlanetCollection.Wpf\PlanetCollection.Wpf.exe')) {
+          foreach ($relative in @(
+            'PlanetSniffer.Wpf\PlanetSniffer.Wpf.exe',
+            'PlanetCollection.Wpf\PlanetCollection.Wpf.exe',
+            'GalaxyMap.Wpf\GalaxyMap.Wpf.exe'
+          )) {
             $actual = (Get-Item -LiteralPath (Join-Path $env:INSTALL_ROOT $relative)).VersionInfo.FileVersion
             if ($actual -ne $expectedVersion) { throw "$relative version $actual does not match $expectedVersion" }
           }
@@ -112,6 +116,7 @@ jobs:
           subject-path: |
             ${{ steps.install.outputs.install_root }}/PlanetSniffer.Wpf/PlanetSniffer.Wpf.exe
             ${{ steps.install.outputs.install_root }}/PlanetCollection.Wpf/PlanetCollection.Wpf.exe
+            ${{ steps.install.outputs.install_root }}/GalaxyMap.Wpf/GalaxyMap.Wpf.exe
       - name: Remove stale drafts and publish selected release
         shell: pwsh
         env:

@@ -8,11 +8,13 @@
 3. Compare the installer's SHA-256 with `SHA256SUMS.txt` from the same release.
 4. Run the installer and follow the Windows prompts.
 
-The installer is self-contained for Windows 10/11 x64. Npcap is required only
-for live capture; Planet Collection works without it. Planet Tools does not
-bundle or silently install Npcap. If needed, use the installer's optional link
-or the Sniffer prompt to open the [official Npcap download page](https://npcap.com/#download),
-complete its installer, then select **Recheck** or reopen Sniffer.
+The installer provides Planet Sniffer, Planet Collection, and Galaxy Map &
+Dungeons as standalone applications for Windows 10/11 x64. Npcap is required
+only for live capture; Planet Collection and Galaxy Map & Dungeons work
+without it. Planet Tools does not bundle or silently install Npcap. If needed,
+use the installer's optional link or the Sniffer prompt to open the
+[official Npcap download page](https://npcap.com/#download), complete its
+installer, then select **Recheck** or reopen Sniffer.
 
 Windows may display a SmartScreen warning while releases are unsigned. Verify
 the SHA-256 before running a downloaded installer.

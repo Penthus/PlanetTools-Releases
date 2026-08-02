@@ -16,11 +16,12 @@ HASH_RE = re.compile(r"^[0-9a-f]{64}$")
 MAX_INSTALLER_SIZE = 256 * 1024 * 1024
 MAX_INSTALLED_FILE_SIZE = 160 * 1024 * 1024
 MAX_INSTALLED_TOTAL_SIZE = 768 * 1024 * 1024
-MAX_INSTALLED_FILES = 1024
+MAX_INSTALLED_FILES = 1536
 REQUIRED_INSTALLED_FILES = {
     "PlanetSniffer.Wpf/PlanetSniffer.Wpf.exe",
     "PlanetCollection.Wpf/PlanetCollection.Wpf.exe",
     "PlanetCollection.Wpf/Assets/extractor-catalog.json",
+    "GalaxyMap.Wpf/GalaxyMap.Wpf.exe",
 }
 ALLOWED_INSTALLED_SUFFIXES = {".exe", ".dll", ".json", ".config", ".dat"}
 
