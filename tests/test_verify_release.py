@@ -39,10 +39,11 @@ def synthetic_assets(root: Path):
     installer = pe(0x014C)
     (root / installer_name).write_bytes(installer)
     installed_files = {
-        "PlanetSniffer.Wpf/PlanetSniffer.Wpf.exe": "0" * 64,
-        "PlanetCollection.Wpf/PlanetCollection.Wpf.exe": "1" * 64,
-        "PlanetCollection.Wpf/Assets/extractor-catalog.json": "2" * 64,
-        "GalaxyMap.Wpf/GalaxyMap.Wpf.exe": "3" * 64,
+        "PlanetTools.Launcher.Wpf/SEPT_PlanetTools.Launcher.Wpf.exe": "0" * 64,
+        "PlanetSniffer.Wpf/SEPT_PlanetSniffer.Wpf.exe": "1" * 64,
+        "PlanetCollection.Wpf/SEPT_PlanetCollection.Wpf.exe": "2" * 64,
+        "PlanetCollection.Wpf/Assets/extractor-catalog.json": "3" * 64,
+        "GalaxyMap.Wpf/SEPT_GalaxyMap.Wpf.exe": "4" * 64,
     }
     manifest = {
         "schema_version": 1,
