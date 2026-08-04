@@ -99,9 +99,10 @@ jobs:
           python scripts/verify_release.py --tag $env:TAG --assets incoming --installed-root $env:INSTALL_ROOT --expected-json-base64 $encoded
           $expectedVersion = $env:TAG.Substring(1) + '.0'
           foreach ($relative in @(
-            'PlanetSniffer.Wpf\PlanetSniffer.Wpf.exe',
-            'PlanetCollection.Wpf\PlanetCollection.Wpf.exe',
-            'GalaxyMap.Wpf\GalaxyMap.Wpf.exe'
+            'PlanetTools.Launcher.Wpf\SEPT_PlanetTools.Launcher.Wpf.exe',
+            'PlanetSniffer.Wpf\SEPT_PlanetSniffer.Wpf.exe',
+            'PlanetCollection.Wpf\SEPT_PlanetCollection.Wpf.exe',
+            'GalaxyMap.Wpf\SEPT_GalaxyMap.Wpf.exe'
           )) {
             $actual = (Get-Item -LiteralPath (Join-Path $env:INSTALL_ROOT $relative)).VersionInfo.FileVersion
             if ($actual -ne $expectedVersion) { throw "$relative version $actual does not match $expectedVersion" }
@@ -114,9 +115,10 @@ jobs:
         uses: actions/attest@f7c74d28b9d84cb8768d0b8ca14a4bac6ef463e6 # v4
         with:
           subject-path: |
-            ${{ steps.install.outputs.install_root }}/PlanetSniffer.Wpf/PlanetSniffer.Wpf.exe
-            ${{ steps.install.outputs.install_root }}/PlanetCollection.Wpf/PlanetCollection.Wpf.exe
-            ${{ steps.install.outputs.install_root }}/GalaxyMap.Wpf/GalaxyMap.Wpf.exe
+            ${{ steps.install.outputs.install_root }}/PlanetTools.Launcher.Wpf/SEPT_PlanetTools.Launcher.Wpf.exe
+            ${{ steps.install.outputs.install_root }}/PlanetSniffer.Wpf/SEPT_PlanetSniffer.Wpf.exe
+            ${{ steps.install.outputs.install_root }}/PlanetCollection.Wpf/SEPT_PlanetCollection.Wpf.exe
+            ${{ steps.install.outputs.install_root }}/GalaxyMap.Wpf/SEPT_GalaxyMap.Wpf.exe
       - name: Remove stale drafts and publish selected release
         shell: pwsh
         env:
