@@ -19,6 +19,11 @@ installer, then select **Recheck** or reopen Sniffer.
 Windows may display a SmartScreen warning while releases are unsigned. Verify
 the SHA-256 before running a downloaded installer.
 
+The Gateway Launcher displays its installed version and checks this release
+page for updates. Updates require user confirmation. The launcher verifies the
+downloaded installer against `release-manifest.json` before handing it to
+Windows; an unavailable GitHub check does not prevent normal use.
+
 ## Safe support
 
 When reporting a problem, include the Planet Tools version, Windows version,
