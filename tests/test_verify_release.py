@@ -44,6 +44,12 @@ def synthetic_assets(root: Path):
         "PlanetCollection.Wpf/SEPT_PlanetCollection.Wpf.exe": "2" * 64,
         "PlanetCollection.Wpf/Assets/extractor-catalog.json": "3" * 64,
         "GalaxyMap.Wpf/SEPT_GalaxyMap.Wpf.exe": "4" * 64,
+        "PlanetInventory.Wpf/SEPT_PlanetInventory.Wpf.exe": "5" * 64,
+        "StarEmpireTheorycraft.Wpf/SEPT_StarEmpireTheorycraft.Wpf.exe": "6" * 64,
+        "StarEmpireTheorycraft.Wpf/tessdata/eng.traineddata": "7" * 64,
+        "StarEmpireTheorycraft.Wpf/x64/tesseract50.dll": "8" * 64,
+        "StarEmpireTheorycraft.Wpf/x64/leptonica-1.82.0.dll": "9" * 64,
+        "StarEmpireTradeEditor.Wpf/SEPT_StarEmpireTradeEditor.Wpf.exe": "a" * 64,
     }
     manifest = {
         "schema_version": 1,
@@ -51,7 +57,7 @@ def synthetic_assets(root: Path):
         "tag": tag,
         "target": "windows-x64",
         "dotnet": "10.0",
-        "self_contained": True,
+        "self_contained": False,
         "package_kind": "inno-setup",
         "authenticode_signed": False,
         "provenance": "public-release-promotion",

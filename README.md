@@ -8,10 +8,14 @@
 3. Compare the installer's SHA-256 with `SHA256SUMS.txt` from the same release.
 4. Run the installer and follow the Windows prompts.
 
-The installer provides Planet Sniffer, Planet Collection, and Galaxy Map &
-Dungeons as standalone applications for Windows 10/11 x64. Npcap is required
-only for live capture; Planet Collection and Galaxy Map & Dungeons work
-without it. Planet Tools does not bundle or silently install Npcap. If needed,
+The installer provides the Gateway Launcher, Planet Sniffer, Planet Collection,
+Item Locator, Galaxy Map & Dungeons, Ship Theorycraft, and Trade Editor for
+Windows 10/11 x64. Apps require the x64 .NET 10 Windows Desktop Runtime. If it
+is missing, setup can download and run Microsoft's x64 runtime installer at the
+user's choice, or the user can defer and install the runtime later. The runtime
+is not bundled. Npcap is required only for live capture; Planet Collection and
+Galaxy Map & Dungeons work without it.
+Planet Tools does not bundle or silently install Npcap. If needed,
 use the installer's optional link or the Sniffer prompt to open the
 [official Npcap download page](https://npcap.com/#download), complete its
 installer, then select **Recheck** or reopen Sniffer.

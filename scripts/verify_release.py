@@ -24,8 +24,21 @@ REQUIRED_INSTALLED_FILES = {
     "PlanetCollection.Wpf/SEPT_PlanetCollection.Wpf.exe",
     "PlanetCollection.Wpf/Assets/extractor-catalog.json",
     "GalaxyMap.Wpf/SEPT_GalaxyMap.Wpf.exe",
+    "PlanetInventory.Wpf/SEPT_PlanetInventory.Wpf.exe",
+    "StarEmpireTheorycraft.Wpf/SEPT_StarEmpireTheorycraft.Wpf.exe",
+    "StarEmpireTheorycraft.Wpf/tessdata/eng.traineddata",
+    "StarEmpireTheorycraft.Wpf/x64/tesseract50.dll",
+    "StarEmpireTheorycraft.Wpf/x64/leptonica-1.82.0.dll",
+    "StarEmpireTradeEditor.Wpf/SEPT_StarEmpireTradeEditor.Wpf.exe",
 }
-ALLOWED_INSTALLED_SUFFIXES = {".exe", ".dll", ".json", ".config", ".dat"}
+ALLOWED_INSTALLED_SUFFIXES = {
+    ".exe",
+    ".dll",
+    ".json",
+    ".config",
+    ".dat",
+    ".traineddata",
+}
 
 
 def sha256(path: Path) -> str:
@@ -140,7 +153,7 @@ def load_and_verify_assets(tag: str, assets: Path, expected: dict[str, str]):
         or manifest.get("tag") != tag
         or manifest.get("target") != "windows-x64"
         or manifest.get("dotnet") != "10.0"
-        or manifest.get("self_contained") is not True
+        or manifest.get("self_contained") is not False
         or manifest.get("package_kind") != "inno-setup"
         or not isinstance(manifest.get("authenticode_signed"), bool)
         or manifest.get("provenance") != "public-release-promotion"
